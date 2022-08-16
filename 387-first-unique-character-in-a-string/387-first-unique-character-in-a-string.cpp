@@ -1,16 +1,17 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        vector<int> count(26,0);
+        unordered_map<char,int> count;
         
-        for(auto it:s){
-            count[it - 'a']++;
+        for(auto i:s){
+            count[i]++;
         }
         
         for(int i = 0; i < s.size(); i++){
-            if(count[s[i] - 'a'] == 1)
+            if(count[s[i]] == 1)
                 return i;
         }
+        
         return -1;
     }
 };
