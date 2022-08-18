@@ -1,4 +1,3 @@
-#define N 100001
 bool sortbysec(const pair<int,int> &a, const pair<int,int> &b){
         return (a.second > b.second);
 }
@@ -8,11 +7,9 @@ public:
     int minSetSize(vector<int>& arr) {
         int n = arr.size();
         unordered_map<int,int> m;
-        unordered_set<int> s;
         
         for(auto it : arr){
             m[it]++;
-            s.insert(it);
         }
         
         vector<pair<int,int> > p;
