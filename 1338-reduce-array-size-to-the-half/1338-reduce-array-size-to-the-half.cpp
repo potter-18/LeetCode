@@ -19,19 +19,16 @@ public:
         }
         
         sort(p.begin(),p.end(),sortbysec);
-        // for(auto it : p){
-        //     cout << it.first << ":" << it.second << "\n";
-        // }
         
         int sum = 0;
-        vector<int> ans;
+        int ans = 0;
         for(auto it : p){
             sum += it.second;
-            ans.push_back(it.first);
+            ans++;
             if(sum >= n/2){
                 break;
             }
         }
-        return ans.size();
+        return ans;
     }
 };
