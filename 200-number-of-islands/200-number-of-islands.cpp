@@ -12,7 +12,6 @@ public:
             for(int j = 0; j < n; j++){
                 if(!vis[i][j] && grid[i][j] == '1'){
                     q.push({i,j});
-                    // cout << "|"<< i <<"|" << "-" << "|"<< j <<"|\n";
                     island++;
                     while(!q.empty()){
                         int k = q.front().first;
@@ -22,19 +21,15 @@ public:
                             vis[k][l] = 1;
                             if(k < m && l+1 < n && grid[k][l+1] == '1' ){
                                 q.push({k,l+1});
-                                // cout << k << "-" << l+1 <<" / ";
                             }
                             if(k+1 < m && l < n && grid[k+1][l] == '1'){
                                 q.push({k+1,l});
-                                // cout << k+1 << "-" << l << "\n";
                             }
                             if(k-1 < m && k-1 >= 0 && l < n && l >=0 && grid[k-1][l] == '1'){
                                 q.push({k-1,l});
-                                // cout << k+1 << "-" << l << "\n";
                             }
                             if(k < m && k >= 0 && l-1 < n && l-1 >=0 && grid[k][l-1] == '1'){
                                 q.push({k,l-1});
-                                // cout << k+1 << "-" << l << "\n";
                             }
                             
                         }
