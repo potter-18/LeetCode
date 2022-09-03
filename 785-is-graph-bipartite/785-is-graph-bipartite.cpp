@@ -5,7 +5,7 @@ public:
         vector<int> vis(n, -1);
         
         for(int i = 0; i < n; i++){
-            if( vis[i] == -1 ){
+            if( vis[i] < 0 ){
                 queue<int> q;
                 q.push(i);
                 vis[i] = 0;
