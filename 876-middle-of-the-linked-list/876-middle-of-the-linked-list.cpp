@@ -18,23 +18,9 @@ public:
             temp = temp->next;
         }
         
-        // if(cnt%2 == 0){
-        //     for(int i = 0; i < cnt/2; i++){
-        //         head = head->next;
-        //     }
-        //     return head;
-        // }
-        // else{
-        //     for(int i = 0; i < cnt/2; i++){
-        //         head = head->next;
-        //     }
-        //     return head;
-        // }
-        
         for(int i = 0; i < cnt/2; i++){
                 head = head->next;
             }
             return head;
-        
     }
 };
