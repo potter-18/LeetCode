@@ -1,12 +1,12 @@
 class Solution {
-public:
+private:
     static bool cmp(vector<int> &a, vector<int> &b){
         if(a[0] == b[0]){
             return a[1] > b[1];
         }
         return a[0] < b[0];
     }
-    
+public:
     int numberOfWeakCharacters(vector<vector<int>>& pr) {
         int n = pr.size();
         sort(pr.begin(), pr.end(), cmp);
