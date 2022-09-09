@@ -1,27 +1,26 @@
 class Solution {
 public:
-    
-    static bool cmp ( vector<int> &a, vector<int> &b ){
-        if ( a[0] < b[0] ) return true;
-        else if ( a[0] == b[0] && a[1] > b[1] ) return true;
-        return false;
+    static bool cmp(vector<int> &a, vector<int> &b){
+        if(a[0] == b[0]){
+            return a[1] > b[1];
+        }
+        return a[0] < b[0];
     }
     
-    int numberOfWeakCharacters(vector<vector<int>>& properties) {
+    int numberOfWeakCharacters(vector<vector<int>>& pr) {
+        int n = pr.size();
+        sort(pr.begin(), pr.end(), cmp);
         
-        sort( properties.begin(), properties.end(), cmp );
-        int n = properties.size(), ans = 0;
-
-        int MAX = properties[n-1][1];        
-        for ( int i = n-2; i>=0; i-- ){
-            
-            if ( properties[i][1] < MAX ){
-                ans += 1;
+        
+        int maxDef = pr[n-1][1];
+        int weakP = 0;
+        for(int i = n-2; i >= 0; i--){
+            if(pr[i][1] < maxDef){
+                weakP++;
             }
-
-            MAX = max( MAX, properties[i][1] );
+            maxDef = max(maxDef,pr[i][1]);
         }
         
-        return ans;        
+        return weakP;
     }
 };
