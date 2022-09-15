@@ -13,26 +13,20 @@ class Solution {
 public:
     bool sym(TreeNode* left, TreeNode* right){
         if(left == NULL || right == NULL){
-            if(left == NULL && right == NULL)
-                return true;
-            else
-                return false;
+            if(left == NULL && right == NULL) return true;
+            else return false;
         }
         
-        if(left->val == right->val && sym(left->left,right->right) && sym(left->right,right->left)){
-            return true;
-        }
+        if(left->val == right->val && sym(left->left,right->right) && sym(left->right,right->left)) return true;
+        
         return false;
     }
     
     bool isSymmetric(TreeNode* root) {
-        if(root == NULL){
-            return true;
-        }
+        if(root == NULL) return true;
         
-        if(sym(root->left,root->right)){
-            return true;
-        }
+        if(sym(root->left,root->right)) return true;
+        
         return false;
     }
 };
