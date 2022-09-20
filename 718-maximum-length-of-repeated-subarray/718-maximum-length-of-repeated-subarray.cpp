@@ -21,7 +21,7 @@ private:
     }
 public:
     int findLength(vector<int>& nums1, vector<int>& nums2) {
-        vector<vector<int>> dp(1001, vector<int>(1001,-1));
+        vector<vector<int>> dp(nums1.size(), vector<int>(nums2.size(),-1));
         maxLen(0,0,nums1,nums2,dp);
         return ans;
     }
