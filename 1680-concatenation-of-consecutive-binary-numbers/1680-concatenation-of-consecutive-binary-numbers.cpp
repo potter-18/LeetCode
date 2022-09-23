@@ -1,6 +1,6 @@
 class Solution {
 private:
-    int numberOfBits(int n){
+    int numberOfBits(int  &n){
         return (int)log2(n)+1;
     }
 public:
