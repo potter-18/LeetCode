@@ -17,7 +17,7 @@ private:
             return;
         }
         currSum.push_back(root->val);
-        if(root->left == NULL && root->right == NULL){
+        if(!root->left && !root->right){
             int sum = 0;
             for(auto it : currSum){
                 sum += it;
@@ -39,8 +39,6 @@ public:
     vector<vector<int>> pathSum(TreeNode* root, int targetSum){
         vector<int> currSum;
         vector<vector<int>> currAns;
-        
-        
         checkSum(root,targetSum,currSum);
         
         
