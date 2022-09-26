@@ -14,8 +14,6 @@ public:
         par[i_id] = par[j_id];
     }
     
-    
-    
     bool equationsPossible(vector<string>& equations) {
         for(int i = 0; i < 26; i++){
             par.push_back(i);
