@@ -18,13 +18,9 @@ public:
             par[i] = i;
         }
         for(int i = 0; i < equations.size(); i++){
-            if(equations[i][1] == '='){
-                union_set(equations[i][0]-97,equations[i][3]-97);
-            }
+            if(equations[i][1] == '=') union_set(equations[i][0]-97,equations[i][3]-97);
         }
-        for(int i = 0; i < 26; i++){
-            find(i);
-        }
+        for(int i = 0; i < 26; i++) find(i);
         for(int i = 0; i < equations.size(); i++){
             if(equations[i][1] == '!' && par[equations[i][0]-97] == par[equations[i][3]-97]){
                 return false;
