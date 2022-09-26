@@ -1,10 +1,9 @@
 class Solution {
 public:
-    vector<int> par;
+    int par[26];
     
     int find(int i){
-        if(i != par[i])
-            par[i] = find(par[i]);
+        if(i != par[i]) par[i] = find(par[i]);
         return par[i];
     }
     
@@ -16,7 +15,7 @@ public:
     
     bool equationsPossible(vector<string>& equations) {
         for(int i = 0; i < 26; i++){
-            par.push_back(i);
+            par[i] = i;
         }
         for(int i = 0; i < equations.size(); i++){
             if(equations[i][1] == '='){
