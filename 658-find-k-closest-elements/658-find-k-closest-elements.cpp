@@ -1,12 +1,17 @@
 class Solution {
 public:
-    vector<int> findClosestElements(vector<int>& arr, int k, int x) {
-        stable_sort(begin(arr), end(arr), [x](const auto a, const auto b){
-            return abs(a - x) < abs(b - x); 
-        });
+    vector<int> findClosestElements(vector<int>& arr, int k, int x){
+        int n = arr.size();
+        int l = 0, r = n-1;
         
-        arr.resize(k);
-        sort(arr.begin(),arr.end());
-        return arr;
+        while(r-l >= k){
+            if(x-arr[l] <= arr[r]-x){
+                r--;
+            }else {
+                l++;
+            }
+        }
+        
+        return vector<int> (arr.begin()+l,arr.begin()+r+1);
     }
 };
