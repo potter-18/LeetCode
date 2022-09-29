@@ -21,7 +21,7 @@ public:
         for(int i = 0; i < k; i++){
             ans.push_back(temp[i].first);
         }
-        sort(ans.begin(),ans.end());
+        sort(ans.begin(), ans.end());
         return ans;
     }
 };
