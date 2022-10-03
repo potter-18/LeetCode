@@ -7,15 +7,12 @@ public:
         bool check = false;
         
         while(l < n && r < n && l < r){
-            // cout << "l,r: " << l << " " << r << "\n";
             if(colors[l] == colors[r]){
                 if(neededTime[l] < neededTime[r]){
                     timeReq += neededTime[l];
-                    // cout << "timeReq: " << timeReq << "\n";
                 }
                 else{
                     timeReq += neededTime[r];
-                    // cout << "timeReq: " << timeReq << "\n";
                     check = true;
                     r++;
                     continue;
