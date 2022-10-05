@@ -11,8 +11,7 @@
  */
 class Solution {
 public:
-    // int currDepth = 0;
-    TreeNode* addOneRow(TreeNode* root, int val, int depth, int currDepth = 0){
+    TreeNode* addOneRow(TreeNode* root, int val, int depth){
         if(root == nullptr)
             return nullptr;
         
@@ -21,17 +20,16 @@ public:
             root = newNode;
             return root;
         }
-        currDepth++;
         
-        if(currDepth == depth-1){
+        if(depth == 2){
             TreeNode* newNode1 = new TreeNode(val,root->left,nullptr);
             TreeNode* newNode2 = new TreeNode(val,nullptr,root->right);
             root->left = newNode1;
             root->right = newNode2;
         }
         else{
-            addOneRow(root->left,val,depth,currDepth);
-            addOneRow(root->right,val,depth,currDepth);
+            addOneRow(root->left,val,depth-1);
+            addOneRow(root->right,val,depth-1);
         }
         
         return root;
