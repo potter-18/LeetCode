@@ -11,28 +11,29 @@
  */
 class Solution {
 public:
-    void addEle(TreeNode* root, int val, int depth, int currDepth){
-        currDepth++;
+    // int currDepth = 0;
+    TreeNode* addOneRow(TreeNode* root, int val, int depth, int currDepth = 0){
         if(root == nullptr)
-            return;
-        if(currDepth == depth-1){
-            TreeNode* newNode1 = new TreeNode(val,root->left,nullptr);
-            TreeNode* newNode2 = new TreeNode(val,nullptr,root->right);
-            root->left = newNode1;
-            root->right = newNode2;
-            return;
-        }
+            return nullptr;
         
-        addEle(root->left,val,depth,currDepth);
-        addEle(root->right,val,depth,currDepth);
-    }
-    TreeNode* addOneRow(TreeNode* root, int val, int depth){
         if(depth == 1){
             TreeNode* newNode = new TreeNode(val,root,nullptr);
             root = newNode;
             return root;
         }
-        addEle(root,val,depth,0);
+        currDepth++;
+        
+        if(currDepth == depth-1){
+            TreeNode* newNode1 = new TreeNode(val,root->left,nullptr);
+            TreeNode* newNode2 = new TreeNode(val,nullptr,root->right);
+            root->left = newNode1;
+            root->right = newNode2;
+        }
+        else{
+            addOneRow(root->left,val,depth,currDepth);
+            addOneRow(root->right,val,depth,currDepth);
+        }
+        
         return root;
     }
 };
