@@ -20,35 +20,36 @@ public:
         if(head == nullptr){
             return head;
         }
-        unordered_map<Node*,int> m;
+        unordered_map<Node*,int> m1;
+        unordered_map<int,Node*> m2;
         Node* curr = head;
         Node* newHead = new Node(curr->val);
         Node* temp = newHead;
         int ind = 0;
-        m[curr] = ind++;
+        m2[ind] = temp;
+        m1[curr] = ind;
+        
         curr = curr->next;
         while(curr){
+            ind++;
             temp->next = new Node(curr->val);
             temp = temp->next;
-            m[curr] = ind++;
+            m2[ind] = temp;
+            m1[curr] = ind;
             curr = curr->next;
         }
         
         curr = head;
         temp = newHead;
-        Node* temp1 = newHead;
         
         while(curr){
             if(curr->random){
-                for(int i= 0; i < m[curr->random]; i++){
-                    temp1 = temp1->next;
-                }
-                temp->random = temp1;
-                temp1 = newHead;
+                temp->random = m2[m1[curr->random]];
             }
-            temp = temp->next;
             curr = curr->next;
+            temp = temp->next;
         }
+        
         return newHead;
     }
 };
