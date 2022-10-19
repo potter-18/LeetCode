@@ -16,8 +16,10 @@ public:
         
         sort(m.begin(),m.end(),cmp);
         vector<string> res;
-        for(auto it : m) res.push_back(it.first);
-        res.resize(k);
+        for(auto it : m){
+            if(k > 0) res.push_back(it.first);
+            k--;
+        } 
         
         return res;
     }
