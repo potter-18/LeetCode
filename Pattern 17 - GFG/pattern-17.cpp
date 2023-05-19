@@ -17,8 +17,9 @@ class Solution {
             char ch = 'A';
             int brpt = (2*i+1)/2;
             for(int j = 0; j < 2*i+1; j++) {
-                if(j < brpt) cout << ch++;
-                else cout << ch--;
+                cout << ch;
+                if(j < brpt) ch++;
+                else ch--;
             }
             
             cout << "\n";
