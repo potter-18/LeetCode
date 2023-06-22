@@ -14,7 +14,7 @@ public:
 	            cout << " ";
 	        }
 	        
-	        for(int j = 0; j < 2*(n-i-1)+1; j++) {
+	        for(int j = 0; j < 2*(n-i)-1; j++) {
 	            cout << "*";
 	        }
 	        
